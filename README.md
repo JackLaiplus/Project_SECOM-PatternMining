@@ -1,4 +1,4 @@
-# Project_SECOM_PatternMining
+# Project_SECOM-PatternMining
 
 專案背景簡介，SECOM 是一組由 UCI Machine Learning Repository 提供的工業製程資料集，完整名稱是 SECOM Manufacturing Data Set。這份資料集來源於一家半導體製造公司（實際公司名稱未公開），主要應用場景用來進行製程品質監控與瑕疵預測（如早期故障偵測、品質異常檢測等）。而本專案目的是從這些大量感測器數據中找出與產品瑕疵（`y=1`）有關的潛在模式與異常。即感測器數據摘要與維度縮減、群組分析（如：以 y 為分群依據來比較感測器行為）
 
