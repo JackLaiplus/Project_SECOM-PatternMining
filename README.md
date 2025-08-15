@@ -48,6 +48,20 @@
 - Scikit-learn
 - Jupyter Notebook
 
+### 📈 分析與結論
+
+| 分析步驟 | 主要觀察 | 關鍵發現與建議 |
+|---------|---------|---------------|
+| **資料探索** | 1567 筆資料、592 欄位，缺失率高（部分>90%），類別不平衡 | 移除零變異欄位；處理缺失值；Fail 樣本比例低需平衡處理 |
+| **群組分析** | 計算 Pass/Fail 群組均值、標準差、缺失率 | 高 SMD 感測器可能與瑕疵相關；少數顯著差異感測器需優先分析 |
+| **視覺化分析** | 箱型圖、熱圖、PCA 顯示群組差異與高相關性 | 建議降維（PCA）減少冗餘；部分感測器差異明顯可作關鍵特徵 |
+| **綜合結論** | 高 SMD 感測器與顯著變數應列入建模重點 | 處理缺失與降維後建模；可導入異常偵測模型做早期預警 |
+
+
+### 📚 參考資料
+
+資料來源： UCI SECOM 資料集 https://archive.ics.uci.edu/dataset/179/secom
+
 ### 🚀 如何使用
 
 ```bash
@@ -56,9 +70,5 @@ cd Project_SECOM_PatternMining
 pip install -r requirements.txt
 jupyter notebook Project_SECOM_PatternMining.ipynb
 ```
-### 📚 參考資料
-
-資料來源： UCI SECOM 資料集 https://archive.ics.uci.edu/dataset/179/secom
-
 
 
