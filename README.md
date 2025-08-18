@@ -47,7 +47,7 @@
 - 資料處理：Pandas、NumPy
 - 視覺化：Matplotlib、Seaborn
 - 機器學習（scikit-learn）：  
-  - 前處理／特徵工程：sklearn.impute.SimpleImputer、sklearn.preprocessing.StandardScaler、（選配）sklearn.decomposition.PCA
+  - 前處理／特徵工程：sklearn.impute.SimpleImputer、sklearn.preprocessing.StandardScaler、（視需要）sklearn.decomposition.PCA
   - 分類器：sklearn.svm.SVC（RBF kernel）
   - 驗證與選模：sklearn.model_selection.GridSearchCV、StratifiedKFold、train_test_split
   - 指標：roc_auc_score、f1_score、recall_score、precision_score、accuracy_score、roc_curve、confusion_matrix、classification_report
