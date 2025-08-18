@@ -53,7 +53,7 @@
   - 指標：roc_auc_score、f1_score、recall_score、precision_score、accuracy_score、roc_curve、confusion_matrix、classification_report
   - 管線化：sklearn.pipeline.Pipeline
 
-  **(2) 建模與分析流程**
+**(2) 建模與分析流程**
 1.  資料切分：train_test_split（stratify=y、固定 random_state）確保類別比例一致。
 2.  前處理／特徵工程（全程放入 Pipeline，只用訓練集 fit，驗證/測試僅 transform，避免資料洩漏）：
   - 缺失值填補：SimpleImputer(strategy="median")
