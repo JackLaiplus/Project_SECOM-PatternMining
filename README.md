@@ -42,20 +42,32 @@
 
 ### 🛠️ 使用技術
 
-本專案使用機器學習（Machine Learning, ML）技術中的**統計模型**與方法包括：核心分類器 sklearn.svm.SVC（RBF kernel）、**特徵工程**轉換器 sklearn.impute.SimpleImputer 與 sklearn.preprocessing.StandardScaler、模型選擇與驗證 sklearn.model_selection.GridSearchCV（搭配 StratifiedKFold），並以 sklearn.pipeline.Pipeline 將 Imputer → Scaler → SVC 串接為可重現的端到端流程。
+**(1) 建模與資料分析工具**
+- 語言與環境：Python 3.x、Jupyter Notebook
+- 資料處理：Pandas、NumPy
+- 視覺化：Matplotlib、Seaborn
+- 機器學習（scikit-learn）：  
+  - 前處理／特徵工程：sklearn.impute.SimpleImputer、sklearn.preprocessing.StandardScaler、（選配）sklearn.decomposition.PCA
+  - 分類器：sklearn.svm.SVC（RBF kernel）
+  - 驗證與選模：sklearn.model_selection.GridSearchCV、StratifiedKFold、train_test_split
+  - 指標：roc_auc_score、f1_score、recall_score、precision_score、accuracy_score、roc_curve、confusion_matrix、classification_report
+  - 管線化：sklearn.pipeline.Pipeline
 
-在**特徵工程**部份，資料具高維度、缺失比例高、強共線與類別不平衡等典型製程特性；因此於建模前以 SimpleImputer 進行中位數缺失值填補，再以 StandardScaler 做標準化（零均值、單位變異），以降低量測尺度差異與極端值對 SVM 超平面的影響。上述轉換皆只以訓練資料估計參數，在驗證與測試階段僅進行轉換，避免資料洩漏並提升泛化穩定度。
-
-在**統計模型**與學習流程上，核心分類器採 SVC（RBF），並設定 class_weight="balanced" 以緩解類別不平衡。同時透過 GridSearchCV 搭配 分層交叉驗證（StratifiedKFold） 進行超參數搜尋，以 ROC AUC 為主要選模指標，並同步監控 F1、Recall、Precision、Accuracy 等衡量指標。整體以 Pipeline 一體化管理前處理與模型，確保流程不洩漏、可重現、可部署。
-
-相關工具：
-
-- Python 3.x
-- Pandas / NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- Jupyter Notebook
+  **(2) 建模與分析流程**
+1.  資料切分：train_test_split（stratify=y、固定 random_state）確保類別比例一致。
+2.  前處理／特徵工程（全程放入 Pipeline，只用訓練集 fit，驗證/測試僅 transform，避免資料洩漏）：
+  - 缺失值填補：SimpleImputer(strategy="median")
+  - 標準化：StandardScaler(with_mean=True, with_std=True)
+  - (視需要)降維：PCA（處理強共線與冗餘；可用保留變異比例如 0.95）
+3. 建模：SVC(kernel="rbf", class_weight="balanced", probability=True)
+4. 超參數搜尋：GridSearchCV + StratifiedKFold(5)，以 ROC AUC 為 refit 主指標，同步追蹤 F1／Recall／Precision／Accuracy；常見搜尋空間：C、gamma（與 PCA n_components 若使用 PCA）。
+5. 評估與視覺化：
+  - ROC 曲線／AUC：整體區分能力
+  - 混淆矩陣與分類報告：觀察 FN/FP 與各指標
+  - （視需要）PR 曲線：不平衡情境下更貼近實務
+6. 閾值與營運策略：以 predict_proba 或 decision function 調整決策閾值，Recall 優先（降低漏檢）；建立灰區複檢。
+7. 產出與重現：保存整條 Pipeline（Imputer→Scaler→〔PCA〕→SVC）為單一模型檔（joblib），固定隨機種子、記錄超參數與版本。
+8. 持續監控：定期檢查資料／概念漂移（指標漂移、特徵分布變化），必要時觸發重訓。
 
 ### 📈 分析與結論
 
