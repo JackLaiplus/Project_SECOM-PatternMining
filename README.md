@@ -56,15 +56,15 @@
 **(2) 建模與分析流程**
 1.  資料切分：train_test_split（stratify=y、固定 random_state）確保類別比例一致。
 2.  前處理／特徵工程（全程放入 Pipeline，只用訓練集 fit，驗證/測試僅 transform，避免資料洩漏）：
-  - 缺失值填補：SimpleImputer(strategy="median")
-  - 標準化：StandardScaler(with_mean=True, with_std=True)
-  - (視需要)降維：PCA（處理強共線與冗餘；可用保留變異比例如 0.95）
+    - 缺失值填補：SimpleImputer(strategy="median")
+    - 標準化：StandardScaler(with_mean=True, with_std=True)
+    - (視需要)降維：PCA（處理強共線與冗餘；可用保留變異比例如 0.95）
 3. 建模：SVC(kernel="rbf", class_weight="balanced", probability=True)
 4. 超參數搜尋：GridSearchCV + StratifiedKFold(5)，以 ROC AUC 為 refit 主指標，同步追蹤 F1／Recall／Precision／Accuracy；常見搜尋空間：C、gamma（與 PCA n_components 若使用 PCA）。
 5. 評估與視覺化：
-  - ROC 曲線／AUC：整體區分能力
-  - 混淆矩陣與分類報告：觀察 FN/FP 與各指標
-  - （視需要）PR 曲線：不平衡情境下更貼近實務
+    - ROC 曲線／AUC：整體區分能力
+    - 混淆矩陣與分類報告：觀察 FN/FP 與各指標
+    - （視需要）PR 曲線：不平衡情境下更貼近實務
 6. 閾值與營運策略：以 predict_proba 或 decision function 調整決策閾值，Recall 優先（降低漏檢）；建立灰區複檢。
 7. 產出與重現：保存整條 Pipeline（Imputer→Scaler→〔PCA〕→SVC）為單一模型檔（joblib），固定隨機種子、記錄超參數與版本。
 8. 持續監控：定期檢查資料／概念漂移（指標漂移、特徵分布變化），必要時觸發重訓。
