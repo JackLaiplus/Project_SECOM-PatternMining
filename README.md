@@ -1,6 +1,6 @@
 # Project_SECOM-PatternMining
 
-本專案源自 BDSE37 Data Mining 課堂上的資料集(Dataset)分析作業，此資料集來源於 SECOM，SECOM 是一組由 UCI Machine Learning Repository 提供的工業製程資料集，完整名稱是 SECOM Manufacturing Data Set。而資料集來源於一家半導體製造公司（實際公司名稱未公開），主要應用場景用來進行製程品質監控與瑕疵預測（如早期故障偵測、品質異常檢測等），基於此資料集，本專案將運用 機器學習（Machine Learning, ML） 技術進行資料探勘（Data Mining），
+本專案源自 BDSE37 Data Mining 課堂上的資料集(Dataset)分析作業，此資料集來源於 SECOM，SECOM 是一組由 UCI Machine Learning Repository 提供的工業製程資料集，完整名稱是 SECOM Manufacturing Data Set。而資料集來源於一家半導體製造公司（實際公司名稱未公開），主要應用場景用來進行製程品質監控與瑕疵預測（如早期故障偵測、品質異常檢測等），基於此資料集，本專案將運用 __機器學習（Machine Learning, ML）__ 技術進行資料探勘（Data Mining），
 
 - 在面對這份半導體產線的感測器大量數據（欄位多、缺值多、分布不均）裡，能不能只把「良品」和「不良品」分成兩群，再用直觀的圖表比較，就能穩定而清楚地找出最可能導致不良的感測器或異常模式（如：群組間差異、潛在關聯、異常感測器行為）？
 
