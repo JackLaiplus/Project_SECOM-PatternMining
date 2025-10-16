@@ -1,6 +1,6 @@
 # Project_SECOM-PatternMining
 
-本專案源自 BDSE37 Data Mining 課堂上的資料集(Dataset)分析作業，此資料集來源於 SECOM，SECOM 是一組由 UCI Machine Learning Repository 提供的工業製程資料集，完整名稱是 SECOM Manufacturing Data Set。而資料集來源於一家半導體製造公司（實際公司名稱未公開），主要應用場景用來進行製程品質監控與瑕疵預測（如早期故障偵測、品質異常檢測等），
+本專案源自 BDSE37 Data Mining 課堂上的資料集(Dataset)分析作業，此資料集來源於 SECOM。SECOM 是一組由 UCI Machine Learning Repository 提供的工業製程資料集，完整名稱是 SECOM Manufacturing Data Set。而資料集來源於一家半導體製造公司（實際公司名稱未公開），主要應用場景用來進行製程品質監控與瑕疵預測（如早期故障偵測、品質異常檢測等），
 
 - 本專案欲探討 __機器學習（Machine Learning, ML）__ 技術在面對這份半導體產線的感測器大量數據資料集（欄位多、缺值多、分布不均）時，如何將這份資料集做二元分類，進而發掘隱藏的規律與模式（如：群組間差異、潛在關聯、異常感測器行為）？
 
