@@ -81,13 +81,4 @@
 
 資料來源： UCI SECOM 資料集 https://archive.ics.uci.edu/dataset/179/secom
 
-### 🚀 如何使用
-
-```bash
-git clone https://github.com/JackLaiplus/Project_MLforInfidelity.git
-cd Project_SECOM_PatternMining
-pip install -r requirements.txt
-jupyter notebook Project_SECOM_PatternMining.ipynb
-```
-
 
