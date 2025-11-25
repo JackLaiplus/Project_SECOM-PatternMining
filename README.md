@@ -44,12 +44,7 @@
 - 語言與環境：Python 3.x、Jupyter Notebook
 - 資料處理：Pandas、NumPy
 - 視覺化：Matplotlib、Seaborn
-- 機器學習（scikit-learn）：  
-  - 前處理／特徵工程：sklearn.impute.SimpleImputer、sklearn.preprocessing.StandardScaler、（視需要）sklearn.decomposition.PCA
-  - 分類器：sklearn.svm.SVC（RBF kernel）
-  - 驗證與選模：sklearn.model_selection.GridSearchCV、StratifiedKFold、train_test_split
-  - 指標：roc_auc_score、f1_score、recall_score、precision_score、accuracy_score、roc_curve、confusion_matrix、classification_report
-  - 管線化：sklearn.pipeline.Pipeline
+- 機器學習：scikit-learn  
 
 **(2) 建模與分析流程**
 1.  資料切分：train_test_split（stratify=y、固定 random_state）確保類別比例一致。
