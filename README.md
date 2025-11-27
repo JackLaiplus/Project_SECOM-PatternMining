@@ -74,6 +74,6 @@
 
 ## 參考資料
 
-資料來源： UCI SECOM 資料集 https://archive.ics.uci.edu/dataset/179/secom
+資料來源： UCI SECOM 資料集 https://www.kaggle.com/datasets/paresh2047/uci-semcom
 
 
